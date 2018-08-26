@@ -11,25 +11,25 @@ class SunActivityPage extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             coordinatesError: false,
             sunActivity: {}
         };
-
         this.getSunActivity = this.getSunActivity.bind(this);
     }
 
     getSunActivity ({ postcode, date }) {
 
         fetchCoordinates(postcode)
-            .then((response: any) => {
+            .then((response) => {
                 return {
                     formattedDate: moment(date).toDate(),
                     latitude: response.result.latitude,
                     longitude: response.result.longitude
                 }
             })
-            .then((data: any) => {
+            .then((data) => {
                 this.setState({
                     coordinatesError: false,
                     sunActivity: SunCalc.getTimes(data.formattedDate, data.latitude, data.longitude),

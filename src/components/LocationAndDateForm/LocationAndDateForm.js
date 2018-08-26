@@ -49,11 +49,22 @@ class LocationAndDateForm extends React.Component {
                 <fieldset className="form_fieldset">
                     <div className="field">
                         <label className="field__label" htmlFor="postcode">Postcode</label>
-                        <input defaultValue="" required={true} type="text" id="postcode" name="postcode" className="field__input field__input--text" maxLength={8} ref={ (e) => this.fields.postcode = e } />
+                        <input defaultValue=""
+                               required={true}
+                               type="text"
+                               name="postcode"
+                               className="field__input field__input--text"
+                               maxLength={8}
+                               ref={ (e) => this.fields.postcode = e } />
                     </div>
                     <div className="field">
                         <label className="field__label" htmlFor="date">Date</label>
-                        <input defaultValue="" required={true} type="date" id="date" name="date" className="field__input field__input--date" ref={ (e) => this.fields.date= e } />
+                        <input defaultValue=""
+                               required={true}
+                               type="date"
+                               name="date"
+                               className="field__input field__input--date"
+                               ref={ (e) => this.fields.date= e } />
                     </div>
                 </fieldset>
                 <footer className="footer">
