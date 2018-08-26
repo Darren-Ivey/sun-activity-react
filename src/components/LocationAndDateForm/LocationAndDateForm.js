@@ -1,35 +1,23 @@
-import * as _ from 'lodash';
-import * as React from 'react';
+import _ from 'lodash';
+import React from 'react';
 import './LocationAndDateForm.css';
 
 class LocationAndDateForm extends React.Component {
 
-    fields: {
-        postcodeInput: ?{},
-        dateInput: ?{}
-    };
-
     constructor (props) {
         super(props);
-        this.fields = {
-            postcodeInput: {},
-            dateInput: {}
-        };
+        this.fields = {};
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     gatherData () {
-        let values: {} = {};
-        _.forOwn(this.fields, (field) => {
-            if (field) {
-                values = {...values, [field.name]: field.value}
-            }
-        });
-        return values;
+        return _.mapValues(this.fields, 'value');
     }
 
     handleSubmit (e: any) {
         e.preventDefault();
+        console.log(this.gatherData());
         this.props.getSunActivity(this.gatherData());
     }
 
@@ -62,11 +50,11 @@ class LocationAndDateForm extends React.Component {
                 <fieldset className="form_fieldset">
                     <div className="field">
                         <label className="field__label" htmlFor="postcode">Postcode</label>
-                        <input defaultValue="" required={true} type="text" id="postcode" name="postcode" className="field__input field__input--text" maxLength={8} ref={ (e) => this.fields.postcodeInput = e } />
+                        <input defaultValue="" required={true} type="text" id="postcode" name="postcode" className="field__input field__input--text" maxLength={8} ref={ (e) => this.fields.postcode = e } />
                     </div>
                     <div className="field">
                         <label className="field__label" htmlFor="date">Date</label>
-                        <input defaultValue="" required={true} type="date" id="date" name="date" className="field__input field__input--date" ref={ (e) => this.fields.dateInput= e } />
+                        <input defaultValue="" required={true} type="date" id="date" name="date" className="field__input field__input--date" ref={ (e) => this.fields.date= e } />
                     </div>
                 </fieldset>
                 <footer className="footer">
