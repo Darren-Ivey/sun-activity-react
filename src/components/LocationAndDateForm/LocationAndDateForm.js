@@ -15,7 +15,7 @@ class LocationAndDateForm extends React.Component {
         return _.mapValues(this.fields, 'value');
     }
 
-    handleSubmit (e: any) {
+    handleSubmit (e) {
         e.preventDefault();
         console.log(this.gatherData());
         this.props.getSunActivity(this.gatherData());
