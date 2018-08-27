@@ -1,6 +1,5 @@
-
+import React from 'react';
 import moment from 'moment';
-import * as React from 'react';
 import SunCalc from 'suncalc';
 import LocationAndDateForm from '../components/LocationAndDateForm/LocationAndDateForm';
 import SunActivity from '../components/SunActivity/SunActivity';

@@ -44,7 +44,7 @@ class LocationAndDateForm extends React.Component {
 
     render () {
         return (
-            <form className="form" onSubmit={ this.handleSubmit }>
+            <form className="form" onSubmit={this.handleSubmit}>
                 <h2 className="form__header">Search for your sunrise and sunset times</h2>
                 <fieldset className="form_fieldset">
                     <div className="field">
@@ -52,7 +52,7 @@ class LocationAndDateForm extends React.Component {
                         <input defaultValue=""
                                required={true}
                                type="text"
-                               name="postcode"
+                               id="postcode"
                                className="field__input field__input--text"
                                maxLength={8}
                                ref={ (e) => this.fields.postcode = e } />
@@ -62,7 +62,7 @@ class LocationAndDateForm extends React.Component {
                         <input defaultValue=""
                                required={true}
                                type="date"
-                               name="date"
+                               id="date"
                                className="field__input field__input--date"
                                ref={ (e) => this.fields.date= e } />
                     </div>
